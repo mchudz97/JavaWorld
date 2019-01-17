@@ -1,20 +1,32 @@
 package javaWorld;
 
-public class Plant extends Organism{
+import java.util.ArrayList;
+
+public abstract class Plant extends Organism{
 	Plant(){
 		super();
 	};
-	
-	Plant(int pow, char sign, int x, int y){
-		super(pow, sign, x, y);
+
 		
-		
-		
-		
+	public boolean interact(ArrayList<Organism> orgs){
+		return false;
 	}
-	public void move(){
-		
+	public abstract boolean reproduce(ArrayList<Organism> orgs);
+	public boolean updateStats(ArrayList<Organism> arr){
+		if(this.getLiveLength()<1) {
+			arr.remove(this);
+			return true;
+		}
+		else{
+			this.setLiveLength(this.getLiveLength()-1);
+			this.setPower(this.getPower()+0.1);
+			return false;
+		}
 	}
+	public boolean move(ArrayList<Organism> orgs){ 
+		return false;
+	}	
+		
 
 		
 	

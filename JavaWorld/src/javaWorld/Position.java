@@ -27,6 +27,12 @@ public boolean equals(Position p){
 	if(p.getPos_x()==this.getPos_x() && p.getPos_y()==this.getPos_y() ) return true;
 	return false;
 }
+public boolean rangeChecking(Position p, int r){
+	if(p.getPos_x()<=r*World.pixelSize+this.getPos_x()&&p.getPos_x()>=this.getPos_x()-r*World.pixelSize &&
+		p.getPos_y()<=r*World.pixelSize+this.getPos_y()&&p.getPos_y()>=this.getPos_y()-r*World.pixelSize) return true;
+	return false;
+}
+
 @Override
 public String toString() {
 	return "  (" + pos_x + ", " + pos_y + ")  ";
